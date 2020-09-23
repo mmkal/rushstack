@@ -74,22 +74,22 @@ export class ChangeFile {
    * Note that this value may change if called twice in a row,
    * as it is partially based on the current date/time.
    */
-  public generatePath(): string {
+  public generatePath(suffixParam?: string): string {
     let branch: string | undefined = undefined;
     const repoInfo: gitInfo.GitRepoInfo | undefined = Git.getGitInfo();
     branch = repoInfo && repoInfo.branch;
     if (!branch) {
-      console.log('Could not automatically detect git branch name, using timestamp instead.');
+      console.log('Could not automatically detect git branch name, using suffix/timestamp instead.');
     }
 
-    // example filename: yourbranchname_2017-05-01-20-20.json
-    const filename: string = branch
-      ? this._escapeFilename(`${branch}_${this._getTimestamp()}.json`)
-      : `${this._getTimestamp()}.json`;
+    // example filename without suffix param: yourbranchname_2017-05-01-20-20.json
+    // example filename with suffix param: yourbranchname_yoursuffix.json
+    const suffix: string | undefined = suffixParam || this._getTimestamp();
+    const filename: string = branch ? `${branch}_${suffix}.json` : `${suffix}.json`;
     const filePath: string = path.join(
       this._rushConfiguration.changesFolder,
       ...this._changeFileData.packageName.split('/'),
-      filename
+      this._escapeFilename(filename)
     );
     return filePath;
   }

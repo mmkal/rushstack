@@ -40,6 +40,7 @@ export class ChangeAction extends BaseRushAction {
   private _bulkChangeMessageParameter: CommandLineStringParameter;
   private _bulkChangeBumpTypeParameter: CommandLineChoiceParameter;
   private _overwriteFlagParameter: CommandLineFlagParameter;
+  private _suffixParameter: CommandLineStringParameter;
 
   private _targetBranchName: string;
   private _projectHostMap: Map<string, string>;
@@ -86,6 +87,7 @@ export class ChangeAction extends BaseRushAction {
     const BULK_LONG_NAME: string = '--bulk';
     const BULK_MESSAGE_LONG_NAME: string = '--message';
     const BULK_BUMP_TYPE_LONG_NAME: string = '--bump-type';
+    const OVERWRITE_LONG_NAME: string = '--overwrite';
 
     this._verifyParameter = this.defineFlagParameter({
       parameterLongName: '--verify',
@@ -113,6 +115,14 @@ export class ChangeAction extends BaseRushAction {
       description:
         `If a changefile already exists, overwrite without prompting ` +
         `(or erroring in ${BULK_LONG_NAME} mode).`
+    });
+
+    this._suffixParameter = this.defineStringParameter({
+      parameterLongName: '--suffix',
+      argumentName: 'SUFFIX',
+      description:
+        `Specifies the suffix for the generated changefile. Defaults to a timestamp if not specified. ` +
+        `Useful in combination with ${OVERWRITE_LONG_NAME} to update an existing changefile.`
     });
 
     this._changeEmailParameter = this.defineStringParameter({
@@ -616,7 +626,7 @@ export class ChangeAction extends BaseRushAction {
   ): Promise<void> {
     const output: string = JSON.stringify(changeFileData, undefined, 2);
     const changeFile: ChangeFile = new ChangeFile(changeFileData, this.rushConfiguration);
-    const filePath: string = changeFile.generatePath();
+    const filePath: string = changeFile.generatePath(this._suffixParameter.value); // ??
 
     const fileExists: boolean = FileSystem.exists(filePath);
     const shouldWrite: boolean =
