@@ -8,20 +8,20 @@ import { CommandLineParameter, CommandLineParameterKind } from './BaseClasses';
  * The data type returned by {@link CommandLineParameterProvider.defineChoiceParameter}.
  * @public
  */
-export class CommandLineChoiceParameter extends CommandLineParameter {
+export class CommandLineChoiceParameter<Choice extends string> extends CommandLineParameter {
   /** {@inheritDoc ICommandLineChoiceDefinition.alternatives} */
-  public readonly alternatives: ReadonlyArray<string>;
+  public readonly alternatives: ReadonlyArray<Choice>;
 
   /** {@inheritDoc ICommandLineStringDefinition.defaultValue} */
-  public readonly defaultValue: string | undefined;
+  public readonly defaultValue: Choice | undefined;
 
-  private _value: string | undefined = undefined;
+  private _value: Choice | undefined = undefined;
 
   /** {@inheritDoc ICommandLineChoiceDefinition.completions} */
   public readonly completions: (() => Promise<string[]>) | undefined;
 
   /** @internal */
-  public constructor(definition: ICommandLineChoiceDefinition) {
+  public constructor(definition: ICommandLineChoiceDefinition<Choice>) {
     super(definition);
 
     if (definition.alternatives.length < 1) {
@@ -58,7 +58,7 @@ export class CommandLineChoiceParameter extends CommandLineParameter {
       if (typeof data !== 'string') {
         this.reportInvalidData(data);
       }
-      this._value = data;
+      this._value = data as Choice;
       return;
     }
 
@@ -66,14 +66,14 @@ export class CommandLineChoiceParameter extends CommandLineParameter {
       // Try reading the environment variable
       const environmentValue: string | undefined = process.env[this.environmentVariable];
       if (environmentValue !== undefined && environmentValue !== '') {
-        if (this.alternatives.indexOf(environmentValue) < 0) {
+        if (this.alternatives.indexOf(environmentValue as Choice) < 0) {
           const choices: string = '"' + this.alternatives.join('", "') + '"';
           throw new Error(
             `Invalid value "${environmentValue}" for the environment variable` +
               ` ${this.environmentVariable}.  Valid choices are: ${choices}`
           );
         }
-        this._value = environmentValue;
+        this._value = environmentValue as Choice;
         return;
       }
     }
@@ -105,7 +105,7 @@ export class CommandLineChoiceParameter extends CommandLineParameter {
    * The return value will be `undefined` if the command-line has not been parsed yet,
    * or if the parameter was omitted and has no default value.
    */
-  public get value(): string | undefined {
+  public get value(): Choice | undefined {
     return this._value;
   }
 

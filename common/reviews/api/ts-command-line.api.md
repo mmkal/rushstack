@@ -25,20 +25,20 @@ export abstract class CommandLineAction extends CommandLineParameterProvider {
 }
 
 // @public
-export class CommandLineChoiceParameter extends CommandLineParameter {
+export class CommandLineChoiceParameter<Choice extends string> extends CommandLineParameter {
     // @internal
-    constructor(definition: ICommandLineChoiceDefinition);
-    readonly alternatives: ReadonlyArray<string>;
+    constructor(definition: ICommandLineChoiceDefinition<Choice>);
+    readonly alternatives: ReadonlyArray<Choice>;
     // @override
     appendToArgList(argList: string[]): void;
     readonly completions: (() => Promise<string[]>) | undefined;
-    readonly defaultValue: string | undefined;
+    readonly defaultValue: Choice | undefined;
     // @internal
     _getSupplementaryNotes(supplementaryNotes: string[]): void;
     readonly kind: CommandLineParameterKind;
     // @internal
     _setValue(data: any): void;
-    readonly value: string | undefined;
+    readonly value: Choice | undefined;
     }
 
 // @public
@@ -114,7 +114,7 @@ export enum CommandLineParameterKind {
 export abstract class CommandLineParameterProvider {
     // @internal
     constructor();
-    defineChoiceParameter(definition: ICommandLineChoiceDefinition): CommandLineChoiceParameter;
+    defineChoiceParameter<Choice extends string>(definition: ICommandLineChoiceDefinition<Choice>): CommandLineChoiceParameter<Choice>;
     defineCommandLineRemainder(definition: ICommandLineRemainderDefinition): CommandLineRemainder;
     defineFlagParameter(definition: ICommandLineFlagDefinition): CommandLineFlagParameter;
     defineIntegerParameter(definition: ICommandLineIntegerDefinition): CommandLineIntegerParameter;
@@ -122,7 +122,7 @@ export abstract class CommandLineParameterProvider {
     defineStringParameter(definition: ICommandLineStringDefinition): CommandLineStringParameter;
     // @internal
     protected abstract _getArgumentParser(): argparse.ArgumentParser;
-    getChoiceParameter(parameterLongName: string): CommandLineChoiceParameter;
+    getChoiceParameter<Choice extends string>(parameterLongName: string): CommandLineChoiceParameter<Choice>;
     getFlagParameter(parameterLongName: string): CommandLineFlagParameter;
     getIntegerParameter(parameterLongName: string): CommandLineIntegerParameter;
     getStringListParameter(parameterLongName: string): CommandLineStringListParameter;
@@ -235,10 +235,10 @@ export interface ICommandLineActionOptions {
 }
 
 // @public
-export interface ICommandLineChoiceDefinition extends IBaseCommandLineDefinition {
-    alternatives: string[];
-    completions?: () => Promise<string[]>;
-    defaultValue?: string;
+export interface ICommandLineChoiceDefinition<Choice extends string> extends IBaseCommandLineDefinition {
+    alternatives: Choice[];
+    completions?: () => Promise<Choice[]>;
+    defaultValue?: Choice;
 }
 
 // @public

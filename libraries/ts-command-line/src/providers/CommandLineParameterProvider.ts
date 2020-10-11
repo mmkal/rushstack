@@ -77,8 +77,10 @@ export abstract class CommandLineParameterProvider {
    * example-tool --log-level warn
    * ```
    */
-  public defineChoiceParameter(definition: ICommandLineChoiceDefinition): CommandLineChoiceParameter {
-    const parameter: CommandLineChoiceParameter = new CommandLineChoiceParameter(definition);
+  public defineChoiceParameter<Choice extends string>(
+    definition: ICommandLineChoiceDefinition<Choice>
+  ): CommandLineChoiceParameter<Choice> {
+    const parameter: CommandLineChoiceParameter<Choice> = new CommandLineChoiceParameter(definition);
     this._defineParameter(parameter);
     return parameter;
   }
@@ -88,7 +90,9 @@ export abstract class CommandLineParameterProvider {
    * @remarks
    * This method throws an exception if the parameter is not defined.
    */
-  public getChoiceParameter(parameterLongName: string): CommandLineChoiceParameter {
+  public getChoiceParameter<Choice extends string>(
+    parameterLongName: string
+  ): CommandLineChoiceParameter<Choice> {
     return this._getParameter(parameterLongName, CommandLineParameterKind.Choice);
   }
 
@@ -317,7 +321,9 @@ export abstract class CommandLineParameterProvider {
 
     switch (parameter.kind) {
       case CommandLineParameterKind.Choice:
-        const choiceParameter: CommandLineChoiceParameter = parameter as CommandLineChoiceParameter;
+        const choiceParameter: CommandLineChoiceParameter<string> = parameter as CommandLineChoiceParameter<
+          string
+        >;
         argparseOptions.choices = choiceParameter.alternatives as string[];
         break;
       case CommandLineParameterKind.Flag:

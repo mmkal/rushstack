@@ -109,16 +109,16 @@ export interface IBaseCommandLineDefinitionWithArgument extends IBaseCommandLine
  *
  * @public
  */
-export interface ICommandLineChoiceDefinition extends IBaseCommandLineDefinition {
+export interface ICommandLineChoiceDefinition<Choice extends string> extends IBaseCommandLineDefinition {
   /**
    * A list of strings (which contain no spaces), of possible options which can be selected
    */
-  alternatives: string[];
+  alternatives: Choice[];
 
   /**
    * {@inheritDoc ICommandLineStringDefinition.defaultValue}
    */
-  defaultValue?: string;
+  defaultValue?: Choice;
 
   /**
    * An optional callback that provides a list of custom choices for tab completion.
@@ -126,7 +126,7 @@ export interface ICommandLineChoiceDefinition extends IBaseCommandLineDefinition
    * This option is only used when `ICommandLineParserOptions.enableTabCompletionAction`
    * is enabled.
    */
-  completions?: () => Promise<string[]>;
+  completions?: () => Promise<Choice[]>;
 }
 
 /**
