@@ -1,6 +1,45 @@
 # Change Log - @rushstack/typings-generator
 
-This log was last generated on Tue, 22 Sep 2020 05:45:57 GMT and should not be manually modified.
+This log was last generated on Tue, 06 Oct 2020 00:24:06 GMT and should not be manually modified.
+
+## 0.2.17
+Tue, 06 Oct 2020 00:24:06 GMT
+
+_Version update only_
+
+## 0.2.16
+Mon, 05 Oct 2020 22:36:57 GMT
+
+_Version update only_
+
+## 0.2.15
+Mon, 05 Oct 2020 15:10:42 GMT
+
+_Version update only_
+
+## 0.2.14
+Thu, 01 Oct 2020 20:27:16 GMT
+
+_Version update only_
+
+## 0.2.13
+Thu, 01 Oct 2020 18:51:21 GMT
+
+### Patches
+
+- Handle export names with special chars in exportAsDefault interface keys.
+
+## 0.2.12
+Wed, 30 Sep 2020 18:39:17 GMT
+
+_Version update only_
+
+## 0.2.11
+Wed, 30 Sep 2020 06:53:53 GMT
+
+### Patches
+
+- Update README.md
 
 ## 0.2.10
 Tue, 22 Sep 2020 05:45:57 GMT

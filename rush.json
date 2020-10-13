@@ -432,14 +432,14 @@
       "projectFolder": "apps/api-extractor",
       "reviewCategory": "libraries",
       "shouldPublish": true,
-      "cyclicDependencyProjects": ["@microsoft/rush-stack-compiler-3.5", "@rushstack/heft"]
+      "cyclicDependencyProjects": ["@rushstack/heft-node-rig", "@rushstack/heft"]
     },
     {
       "packageName": "@microsoft/api-extractor-model",
       "projectFolder": "apps/api-extractor-model",
       "reviewCategory": "libraries",
       "shouldPublish": true,
-      "cyclicDependencyProjects": ["@microsoft/rush-stack-compiler-3.5", "@rushstack/heft"]
+      "cyclicDependencyProjects": ["@rushstack/heft-node-rig", "@rushstack/heft"]
     },
     {
       "packageName": "@rushstack/heft",
@@ -561,20 +561,8 @@
       "shouldPublish": false
     },
     {
-      "packageName": "heft-node-basic-test",
-      "projectFolder": "build-tests/heft-node-basic-test",
-      "reviewCategory": "tests",
-      "shouldPublish": false
-    },
-    {
       "packageName": "heft-node-everything-test",
       "projectFolder": "build-tests/heft-node-everything-test",
-      "reviewCategory": "tests",
-      "shouldPublish": false
-    },
-    {
-      "packageName": "heft-node-jest-test",
-      "projectFolder": "build-tests/heft-node-jest-test",
       "reviewCategory": "tests",
       "shouldPublish": false
     },
@@ -591,8 +579,14 @@
       "shouldPublish": false
     },
     {
-      "packageName": "heft-webpack-basic-test",
-      "projectFolder": "build-tests/heft-webpack-basic-test",
+      "packageName": "heft-sass-test",
+      "projectFolder": "build-tests/heft-sass-test",
+      "reviewCategory": "tests",
+      "shouldPublish": false
+    },
+    {
+      "packageName": "heft-web-rig-library-test",
+      "projectFolder": "build-tests/heft-web-rig-library-test",
       "reviewCategory": "tests",
       "shouldPublish": false
     },
@@ -739,14 +733,14 @@
       "projectFolder": "core-build/gulp-core-build",
       "reviewCategory": "libraries",
       "shouldPublish": true,
-      "cyclicDependencyProjects": ["@microsoft/node-library-build", "@microsoft/rush-stack-compiler-3.5"]
+      "cyclicDependencyProjects": ["@microsoft/node-library-build", "@microsoft/rush-stack-compiler-3.9"]
     },
     {
       "packageName": "@microsoft/gulp-core-build-mocha",
       "projectFolder": "core-build/gulp-core-build-mocha",
       "reviewCategory": "libraries",
       "shouldPublish": true,
-      "cyclicDependencyProjects": ["@microsoft/node-library-build", "@microsoft/rush-stack-compiler-3.5"]
+      "cyclicDependencyProjects": ["@microsoft/node-library-build", "@microsoft/rush-stack-compiler-3.9"]
     },
     {
       "packageName": "@microsoft/gulp-core-build-sass",
@@ -765,7 +759,7 @@
       "projectFolder": "core-build/gulp-core-build-typescript",
       "reviewCategory": "libraries",
       "shouldPublish": true,
-      "cyclicDependencyProjects": ["@microsoft/node-library-build", "@microsoft/rush-stack-compiler-3.5"]
+      "cyclicDependencyProjects": ["@microsoft/node-library-build", "@microsoft/rush-stack-compiler-3.9"]
     },
     {
       "packageName": "@microsoft/gulp-core-build-webpack",
@@ -791,7 +785,7 @@
       "packageName": "@rushstack/pre-compile-hardlink-or-copy-plugin",
       "projectFolder": "heft-plugins/pre-compile-hardlink-or-copy-plugin",
       "reviewCategory": "libraries",
-      "cyclicDependencyProjects": ["@microsoft/rush-stack-compiler-3.7", "@rushstack/heft"]
+      "cyclicDependencyProjects": ["@rushstack/heft-node-rig", "@rushstack/heft"]
     },
 
     // "libraries" folder (alphabetical order)
@@ -819,13 +813,20 @@
       "projectFolder": "libraries/node-core-library",
       "reviewCategory": "libraries",
       "shouldPublish": true,
-      "cyclicDependencyProjects": ["@microsoft/rush-stack-compiler-3.5", "@rushstack/heft"]
+      "cyclicDependencyProjects": ["@rushstack/heft-node-rig", "@rushstack/heft"]
     },
     {
       "packageName": "@rushstack/package-deps-hash",
       "projectFolder": "libraries/package-deps-hash",
       "reviewCategory": "libraries",
       "shouldPublish": true
+    },
+    {
+      "packageName": "@rushstack/rig-package",
+      "projectFolder": "libraries/rig-package",
+      "reviewCategory": "libraries",
+      "shouldPublish": true,
+      "cyclicDependencyProjects": ["@rushstack/heft-node-rig", "@rushstack/heft"]
     },
     {
       "packageName": "@microsoft/rushell",
@@ -850,24 +851,21 @@
       "projectFolder": "libraries/tree-pattern",
       "reviewCategory": "libraries",
       "shouldPublish": true,
-      "cyclicDependencyProjects": [
-        "@microsoft/rush-stack-compiler-3.5",
-        "@rushstack/heft",
-        "@rushstack/eslint-config"
-      ]
+      "cyclicDependencyProjects": ["@rushstack/heft-node-rig", "@rushstack/heft", "@rushstack/eslint-config"]
     },
     {
       "packageName": "@rushstack/ts-command-line",
       "projectFolder": "libraries/ts-command-line",
       "reviewCategory": "libraries",
       "shouldPublish": true,
-      "cyclicDependencyProjects": ["@microsoft/rush-stack-compiler-3.5", "@rushstack/heft"]
+      "cyclicDependencyProjects": ["@rushstack/heft-node-rig", "@rushstack/heft"]
     },
     {
       "packageName": "@rushstack/typings-generator",
       "projectFolder": "libraries/typings-generator",
       "reviewCategory": "libraries",
-      "shouldPublish": true
+      "shouldPublish": true,
+      "cyclicDependencyProjects": ["@rushstack/heft"]
     },
 
     // "repo-scripts" folder (alphabetical order)
@@ -890,6 +888,20 @@
       "shouldPublish": false
     },
 
+    // "rigs" folder (alphabetical order)
+    {
+      "packageName": "@rushstack/heft-node-rig",
+      "projectFolder": "rigs/heft-node-rig",
+      "reviewCategory": "libraries",
+      "shouldPublish": true
+    },
+    {
+      "packageName": "@rushstack/heft-web-rig",
+      "projectFolder": "rigs/heft-web-rig",
+      "reviewCategory": "libraries",
+      "shouldPublish": true
+    },
+
     // "stack" folder (alphabetical order)
     {
       "packageName": "@rushstack/eslint-config",
@@ -902,21 +914,28 @@
       "projectFolder": "stack/eslint-patch",
       "reviewCategory": "libraries",
       "shouldPublish": true,
-      "cyclicDependencyProjects": ["@microsoft/rush-stack-compiler-3.5", "@rushstack/heft"]
+      "cyclicDependencyProjects": ["@rushstack/heft-node-rig", "@rushstack/heft"]
     },
     {
       "packageName": "@rushstack/eslint-plugin",
       "projectFolder": "stack/eslint-plugin",
       "reviewCategory": "libraries",
       "shouldPublish": true,
-      "cyclicDependencyProjects": ["@microsoft/rush-stack-compiler-3.9", "@rushstack/heft"]
+      "cyclicDependencyProjects": ["@rushstack/heft-node-rig", "@rushstack/heft"]
+    },
+    {
+      "packageName": "@rushstack/eslint-plugin-packlets",
+      "projectFolder": "stack/eslint-plugin-packlets",
+      "reviewCategory": "libraries",
+      "shouldPublish": true,
+      "cyclicDependencyProjects": ["@rushstack/heft-node-rig", "@rushstack/heft"]
     },
     {
       "packageName": "@rushstack/eslint-plugin-security",
       "projectFolder": "stack/eslint-plugin-security",
       "reviewCategory": "libraries",
       "shouldPublish": true,
-      "cyclicDependencyProjects": ["@microsoft/rush-stack-compiler-3.9", "@rushstack/heft"]
+      "cyclicDependencyProjects": ["@rushstack/heft-node-rig", "@rushstack/heft"]
     },
     {
       "packageName": "@microsoft/rush-stack-compiler-2.4",
@@ -1014,12 +1033,44 @@
       "projectFolder": "stack/rush-stack-compiler-3.9",
       "reviewCategory": "libraries",
       "shouldPublish": true,
-      "cyclicDependencyProjects": ["@rushstack/heft"]
+      "cyclicDependencyProjects": ["@microsoft/rush-stack-compiler-3.9", "@rushstack/heft"]
     },
     {
       "packageName": "@microsoft/rush-stack-compiler-shared",
       "projectFolder": "stack/rush-stack-compiler-shared",
       "reviewCategory": "libraries"
+    },
+
+    // "tutorials" folder (alphabetical order)
+    {
+      "packageName": "heft-node-basic-tutorial",
+      "projectFolder": "tutorials/heft-node-basic-tutorial",
+      "reviewCategory": "tests",
+      "shouldPublish": false
+    },
+    {
+      "packageName": "heft-node-jest-tutorial",
+      "projectFolder": "tutorials/heft-node-jest-tutorial",
+      "reviewCategory": "tests",
+      "shouldPublish": false
+    },
+    {
+      "packageName": "heft-node-rig-tutorial",
+      "projectFolder": "tutorials/heft-node-rig-tutorial",
+      "reviewCategory": "tests",
+      "shouldPublish": false
+    },
+    {
+      "packageName": "heft-webpack-basic-tutorial",
+      "projectFolder": "tutorials/heft-webpack-basic-tutorial",
+      "reviewCategory": "tests",
+      "shouldPublish": false
+    },
+    {
+      "packageName": "packlets-tutorial",
+      "projectFolder": "tutorials/packlets-tutorial",
+      "reviewCategory": "tests",
+      "shouldPublish": false
     },
 
     // "webpack" folder (alphabetical order)

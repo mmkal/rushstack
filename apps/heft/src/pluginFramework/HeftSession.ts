@@ -12,6 +12,7 @@ import { IInternalHeftSessionOptions } from './InternalHeftSession';
 import { ScopedLogger } from './logging/ScopedLogger';
 import { LoggingManager } from './logging/LoggingManager';
 import { ICustomActionOptions } from '../cli/actions/CustomAction';
+import { IHeftLifecycle } from './HeftLifecycle';
 
 /** @beta */
 export type RegisterAction = <TParameters>(action: ICustomActionOptions<TParameters>) => void;
@@ -22,6 +23,8 @@ export type RegisterAction = <TParameters>(action: ICustomActionOptions<TParamet
 export interface IHeftSessionHooks {
   metricsCollector: MetricsCollectorHooks;
 
+  /** @internal */
+  heftLifecycle: SyncHook<IHeftLifecycle>;
   build: SyncHook<IBuildStageContext>;
   clean: SyncHook<ICleanStageContext>;
   test: SyncHook<ITestStageContext>;
@@ -50,6 +53,7 @@ export type RequestAccessToPluginByNameCallback = (
 export class HeftSession {
   private readonly _loggingManager: LoggingManager;
   private readonly _options: IHeftSessionOptions;
+  private readonly _getIsDebugMode: () => boolean;
 
   public readonly hooks: IHeftSessionHooks;
 
@@ -61,7 +65,9 @@ export class HeftSession {
   /**
    * If set to true, the build is running with the --debug flag
    */
-  public readonly debugMode: boolean;
+  public get debugMode(): boolean {
+    return this._getIsDebugMode();
+  }
 
   /** @beta */
   public readonly registerAction: RegisterAction;
@@ -87,12 +93,13 @@ export class HeftSession {
     this.hooks = {
       metricsCollector: this.metricsCollector.hooks,
 
+      heftLifecycle: internalSessionOptions.heftLifecycleHook,
       build: internalSessionOptions.buildStage.stageInitializationHook,
       clean: internalSessionOptions.cleanStage.stageInitializationHook,
       test: internalSessionOptions.testStage.stageInitializationHook
     };
 
-    this.debugMode = internalSessionOptions.getIsDebugMode();
+    this._getIsDebugMode = internalSessionOptions.getIsDebugMode;
 
     this.requestAccessToPluginByName = options.requestAccessToPluginByName;
   }
