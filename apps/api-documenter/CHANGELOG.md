@@ -1,6 +1,69 @@
 # Change Log - @microsoft/api-documenter
 
-This log was last generated on Tue, 22 Sep 2020 05:45:56 GMT and should not be manually modified.
+This log was last generated on Tue, 13 Oct 2020 15:11:28 GMT and should not be manually modified.
+
+## 7.9.10
+Tue, 13 Oct 2020 15:11:28 GMT
+
+_Version update only_
+
+## 7.9.9
+Mon, 12 Oct 2020 15:11:16 GMT
+
+_Version update only_
+
+## 7.9.8
+Fri, 09 Oct 2020 15:11:08 GMT
+
+_Version update only_
+
+## 7.9.7
+Tue, 06 Oct 2020 00:24:06 GMT
+
+_Version update only_
+
+## 7.9.6
+Mon, 05 Oct 2020 22:36:57 GMT
+
+_Version update only_
+
+## 7.9.5
+Mon, 05 Oct 2020 15:10:42 GMT
+
+_Version update only_
+
+## 7.9.4
+Fri, 02 Oct 2020 00:10:59 GMT
+
+_Version update only_
+
+## 7.9.3
+Thu, 01 Oct 2020 20:27:16 GMT
+
+_Version update only_
+
+## 7.9.2
+Thu, 01 Oct 2020 18:51:21 GMT
+
+_Version update only_
+
+## 7.9.1
+Wed, 30 Sep 2020 18:39:17 GMT
+
+### Patches
+
+- Update to build with @rushstack/heft-node-rig
+
+## 7.9.0
+Wed, 30 Sep 2020 06:53:53 GMT
+
+### Minor changes
+
+- Upgrade compiler; the API now requires TypeScript 3.9 or newer
+
+### Patches
+
+- Update README.md
 
 ## 7.8.56
 Tue, 22 Sep 2020 05:45:56 GMT

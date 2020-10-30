@@ -1,6 +1,33 @@
 # Change Log - @microsoft/gulp-core-build-webpack
 
-This log was last generated on Tue, 22 Sep 2020 05:45:56 GMT and should not be manually modified.
+This log was last generated on Tue, 06 Oct 2020 00:24:06 GMT and should not be manually modified.
+
+## 5.1.4
+Tue, 06 Oct 2020 00:24:06 GMT
+
+_Version update only_
+
+## 5.1.3
+Mon, 05 Oct 2020 22:36:57 GMT
+
+_Version update only_
+
+## 5.1.2
+Mon, 05 Oct 2020 15:10:42 GMT
+
+_Version update only_
+
+## 5.1.1
+Wed, 30 Sep 2020 18:39:17 GMT
+
+_Version update only_
+
+## 5.1.0
+Wed, 30 Sep 2020 06:53:53 GMT
+
+### Minor changes
+
+- Upgrade compiler; the API now requires TypeScript 3.9 or newer
 
 ## 5.0.49
 Tue, 22 Sep 2020 05:45:56 GMT

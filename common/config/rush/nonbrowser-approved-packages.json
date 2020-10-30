@@ -175,6 +175,10 @@
       "allowedCategories": [ "libraries" ]
     },
     {
+      "name": "@rushstack/eslint-plugin-packlets",
+      "allowedCategories": [ "libraries", "tests" ]
+    },
+    {
       "name": "@rushstack/eslint-plugin-security",
       "allowedCategories": [ "libraries" ]
     },
@@ -187,12 +191,12 @@
       "allowedCategories": [ "libraries" ]
     },
     {
-      "name": "@rushstack/localization-plugin",
-      "allowedCategories": [ "tests" ]
+      "name": "@rushstack/heft-node-rig",
+      "allowedCategories": [ "libraries", "tests" ]
     },
     {
-      "name": "@rushstack/tree-pattern",
-      "allowedCategories": [ "libraries" ]
+      "name": "@rushstack/localization-plugin",
+      "allowedCategories": [ "tests" ]
     },
     {
       "name": "@rushstack/module-minifier-plugin",
@@ -211,6 +215,10 @@
       "allowedCategories": [ "libraries" ]
     },
     {
+      "name": "@rushstack/rig-package",
+      "allowedCategories": [ "libraries" ]
+    },
+    {
       "name": "@rushstack/set-webpack-public-path-plugin",
       "allowedCategories": [ "libraries", "tests" ]
     },
@@ -220,6 +228,10 @@
     },
     {
       "name": "@rushstack/terminal",
+      "allowedCategories": [ "libraries" ]
+    },
+    {
+      "name": "@rushstack/tree-pattern",
       "allowedCategories": [ "libraries" ]
     },
     {
@@ -251,6 +263,10 @@
       "allowedCategories": [ "libraries" ]
     },
     {
+      "name": "ajv",
+      "allowedCategories": [ "libraries" ]
+    },
+    {
       "name": "api-extractor-lib1-test",
       "allowedCategories": [ "tests" ]
     },
@@ -276,15 +292,15 @@
     },
     {
       "name": "autoprefixer",
-      "allowedCategories": [ "libraries" ]
+      "allowedCategories": [ "libraries", "tests" ]
     },
     {
       "name": "builtin-modules",
       "allowedCategories": [ "libraries" ]
     },
     {
-      "name": "chai",
-      "allowedCategories": [ "libraries", "tests" ]
+      "name": "buttono",
+      "allowedCategories": [ "tests" ]
     },
     {
       "name": "chalk",
@@ -600,7 +616,7 @@
     },
     {
       "name": "node-sass",
-      "allowedCategories": [ "libraries" ]
+      "allowedCategories": [ "libraries", "tests" ]
     },
     {
       "name": "npm-package-arg",
@@ -620,7 +636,11 @@
     },
     {
       "name": "postcss",
-      "allowedCategories": [ "libraries" ]
+      "allowedCategories": [ "libraries", "tests" ]
+    },
+    {
+      "name": "postcss-loader",
+      "allowedCategories": [ "tests" ]
     },
     {
       "name": "postcss-modules",
@@ -647,16 +667,12 @@
       "allowedCategories": [ "libraries" ]
     },
     {
+      "name": "sass-loader",
+      "allowedCategories": [ "tests" ]
+    },
+    {
       "name": "semver",
       "allowedCategories": [ "libraries", "tests" ]
-    },
-    {
-      "name": "sinon",
-      "allowedCategories": [ "libraries" ]
-    },
-    {
-      "name": "sinon-chai",
-      "allowedCategories": [ "libraries" ]
     },
     {
       "name": "source-map",
@@ -672,6 +688,10 @@
     },
     {
       "name": "string-argv",
+      "allowedCategories": [ "libraries" ]
+    },
+    {
+      "name": "strip-json-comments",
       "allowedCategories": [ "libraries" ]
     },
     {

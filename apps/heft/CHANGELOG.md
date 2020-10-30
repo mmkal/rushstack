@@ -1,6 +1,89 @@
 # Change Log - @rushstack/heft
 
-This log was last generated on Tue, 22 Sep 2020 05:45:56 GMT and should not be manually modified.
+This log was last generated on Tue, 13 Oct 2020 15:11:28 GMT and should not be manually modified.
+
+## 0.15.8
+Tue, 13 Oct 2020 15:11:28 GMT
+
+### Patches
+
+- Fix an issue where heftSession.debugMode isn't set properly.
+
+## 0.15.7
+Mon, 12 Oct 2020 15:11:16 GMT
+
+### Patches
+
+- Include additionalModuleKindsToEmit in the copy-static-assets plugin destination folders.
+- Throw if jest config file doesn't exist
+
+## 0.15.6
+Fri, 09 Oct 2020 15:11:08 GMT
+
+### Patches
+
+- Support relative imports in the Sass typings generator.
+
+## 0.15.5
+Tue, 06 Oct 2020 00:24:06 GMT
+
+_Version update only_
+
+## 0.15.4
+Mon, 05 Oct 2020 22:36:57 GMT
+
+_Version update only_
+
+## 0.15.3
+Mon, 05 Oct 2020 15:10:42 GMT
+
+_Version update only_
+
+## 0.15.2
+Fri, 02 Oct 2020 00:10:59 GMT
+
+### Patches
+
+- Include UPGRADING.md in npm package publish.
+
+## 0.15.1
+Thu, 01 Oct 2020 20:27:16 GMT
+
+_Version update only_
+
+## 0.15.0
+Thu, 01 Oct 2020 18:51:21 GMT
+
+### Minor changes
+
+- Add functionality to automatically generate typings for *.scss, *.sass, and *.css files.
+
+## 0.14.1
+Wed, 30 Sep 2020 18:39:17 GMT
+
+### Patches
+
+- Update to build with @rushstack/heft-node-rig
+- Reclassify compiler messages TS2564 and TS7053 as warnings instead of errors
+- Print a warning if the API Extractor version is too old
+
+## 0.14.0
+Wed, 30 Sep 2020 06:53:53 GMT
+
+### Minor changes
+
+- (BREAKING CHANGE) Collapse copy-static-assets.json into typescript.json.
+- (BREAKING CHANGE) Move the config files from the ".heft" folder to the "config" folder and print a warning if an unexpected file is found in the ".heft" folder.
+- (BREAKING CHANGE) Consolidate the clean.json and plugins.json files into a new heft.json file.
+- (BREAKING CHANGE) Rename "emitFolderNameForJest" to "emitFolderNameForTests" in typescript.json
+- Heft now supports the config/rig.json system as defined by @rushstack/rig-package
+- Enable api-extractor.json to be provided by a rig package
+- Upgrade compiler; the API now requires TypeScript 3.9 or newer
+
+### Patches
+
+- Update README.md
+- Fix an issue where "heft build --help" printed incorrect help
 
 ## 0.13.9
 Tue, 22 Sep 2020 05:45:56 GMT

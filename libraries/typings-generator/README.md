@@ -1,4 +1,4 @@
-# Typings Generator
+# @rushstack/typings-generator
 
 ## Installation
 
@@ -115,3 +115,19 @@ If this option is set to `true`, the typings will be exported wrapped in a `defa
 allows the file to be imported by using the `import myFile from './myFile.my-extension';` syntax instead of
 the `import { myExport } from './myFile.my-extension';` or the `import * as myFile from './myFile.my-extension';`
 syntax. This style of export is not recommended as it can prevent tree-shaking optimization.
+
+### `exportAsDefaultInterfaceName = true | false`
+
+When `exportAsDefault` is true, this optional setting determines the interface name
+for the default wrapped export. For example, in the Sass Typings plugin, the interface name
+is set to `IExportStyles`. If not specified, the interface name will be `IExport`.
+(This setting is ignored when `exportAsDefault` is false).
+
+## Links
+
+- [CHANGELOG.md](
+  https://github.com/microsoft/rushstack/blob/master/libraries/typings-generator/CHANGELOG.md) - Find
+  out what's new in the latest version
+- [API Reference](https://rushstack.io/pages/api/typings-generator/)
+
+`@rushstack/typings-generator` is part of the [Rush Stack](https://rushstack.io/) family of projects.
