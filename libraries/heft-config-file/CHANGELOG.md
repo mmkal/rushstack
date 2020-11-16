@@ -1,6 +1,48 @@
 # Change Log - @rushstack/heft-config-file
 
-This log was last generated on Tue, 06 Oct 2020 00:24:06 GMT and should not be manually modified.
+This log was last generated on Wed, 11 Nov 2020 01:08:59 GMT and should not be manually modified.
+
+## 0.3.13
+Wed, 11 Nov 2020 01:08:59 GMT
+
+_Version update only_
+
+## 0.3.12
+Tue, 10 Nov 2020 23:13:12 GMT
+
+_Version update only_
+
+## 0.3.11
+Fri, 06 Nov 2020 16:09:30 GMT
+
+### Patches
+
+- Fix an issue where an error would be thrown if a value was omitted in a parent configuration file.
+
+## 0.3.10
+Fri, 30 Oct 2020 06:38:39 GMT
+
+_Version update only_
+
+## 0.3.9
+Fri, 30 Oct 2020 00:10:14 GMT
+
+_Version update only_
+
+## 0.3.8
+Wed, 28 Oct 2020 01:18:03 GMT
+
+_Version update only_
+
+## 0.3.7
+Tue, 27 Oct 2020 15:10:13 GMT
+
+_Version update only_
+
+## 0.3.6
+Thu, 15 Oct 2020 00:59:08 GMT
+
+_Version update only_
 
 ## 0.3.5
 Tue, 06 Oct 2020 00:24:06 GMT
