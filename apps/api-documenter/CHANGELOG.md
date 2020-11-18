@@ -1,6 +1,34 @@
 # Change Log - @microsoft/api-documenter
 
-This log was last generated on Mon, 16 Nov 2020 01:57:58 GMT and should not be manually modified.
+This log was last generated on Wed, 18 Nov 2020 08:19:54 GMT and should not be manually modified.
+
+## 7.11.0
+Wed, 18 Nov 2020 08:19:54 GMT
+
+### Minor changes
+
+- Both methods and properties can now be displayed as "optional" in the documentation
+
+## 7.10.1
+Wed, 18 Nov 2020 06:21:58 GMT
+
+_Version update only_
+
+## 7.10.0
+Wed, 18 Nov 2020 03:15:22 GMT
+
+### Minor changes
+
+- Support for generating hyperlinks from type aliases
+
+### Patches
+
+- Marking optional properties on interface reference docs
+
+## 7.9.33
+Tue, 17 Nov 2020 01:17:38 GMT
+
+_Version update only_
 
 ## 7.9.32
 Mon, 16 Nov 2020 01:57:58 GMT
