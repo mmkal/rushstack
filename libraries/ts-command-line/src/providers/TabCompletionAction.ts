@@ -177,16 +177,16 @@ export class TabCompleteAction extends CommandLineAction {
   private async _getParameterValueCompletions(parameter: CommandLineParameter): Promise<string[]> {
     let choiceParameterValues: string[] = [];
     if (parameter.kind === CommandLineParameterKind.Choice) {
-      choiceParameterValues = (parameter as CommandLineChoiceParameter).alternatives as string[];
+      choiceParameterValues = (parameter as CommandLineChoiceParameter<string>).alternatives as string[];
     } else if (parameter.kind !== CommandLineParameterKind.Flag) {
       let parameterWithArgumentOrChoices:
         | CommandLineParameterWithArgument
-        | CommandLineChoiceParameter
+        | CommandLineChoiceParameter<string>
         | undefined = undefined;
       if (parameter instanceof CommandLineParameterWithArgument) {
         parameterWithArgumentOrChoices = parameter as CommandLineParameterWithArgument;
       } else if (parameter instanceof CommandLineChoiceParameter) {
-        parameterWithArgumentOrChoices = parameter as CommandLineChoiceParameter;
+        parameterWithArgumentOrChoices = parameter as CommandLineChoiceParameter<string>;
       }
       if (parameterWithArgumentOrChoices && parameterWithArgumentOrChoices.completions) {
         choiceParameterValues = await parameterWithArgumentOrChoices.completions();
