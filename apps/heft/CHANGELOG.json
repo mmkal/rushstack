@@ -2,6 +2,101 @@
   "name": "@rushstack/heft",
   "entries": [
     {
+      "version": "0.23.1",
+      "tag": "@rushstack/heft_v0.23.1",
+      "date": "Wed, 06 Jan 2021 16:10:43 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@rushstack/typings-generator\" to `0.3.0`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.23.0",
+      "tag": "@rushstack/heft_v0.23.0",
+      "date": "Mon, 14 Dec 2020 16:12:20 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Delay build stages in --watch mode until the previous stage reports an initial completion."
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.22.7",
+      "tag": "@rushstack/heft_v0.22.7",
+      "date": "Thu, 10 Dec 2020 23:25:49 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Fix an issue where using CTRL+C to terminate \"--watch\" mode would sometimes leave a background process running (GitHub #2387)"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@rushstack/heft-config-file\" to `0.3.15`"
+          },
+          {
+            "comment": "Updating dependency \"@rushstack/node-core-library\" to `3.35.2`"
+          },
+          {
+            "comment": "Updating dependency \"@rushstack/rig-package\" to `0.2.9`"
+          },
+          {
+            "comment": "Updating dependency \"@rushstack/ts-command-line\" to `4.7.8`"
+          },
+          {
+            "comment": "Updating dependency \"@rushstack/typings-generator\" to `0.2.32`"
+          },
+          {
+            "comment": "Updating dependency \"@microsoft/api-extractor\" to `7.12.1`"
+          },
+          {
+            "comment": "Updating dependency \"@rushstack/eslint-config\" to `2.3.2`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.22.6",
+      "tag": "@rushstack/heft_v0.22.6",
+      "date": "Sat, 05 Dec 2020 01:11:23 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@rushstack/typings-generator\" to `0.2.31`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.22.5",
+      "tag": "@rushstack/heft_v0.22.5",
+      "date": "Tue, 01 Dec 2020 01:10:38 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Fix a typo in a logging message."
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.22.4",
+      "tag": "@rushstack/heft_v0.22.4",
+      "date": "Mon, 30 Nov 2020 16:11:49 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@rushstack/typings-generator\" to `0.2.30`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.22.3",
       "tag": "@rushstack/heft_v0.22.3",
       "date": "Wed, 18 Nov 2020 08:19:54 GMT",

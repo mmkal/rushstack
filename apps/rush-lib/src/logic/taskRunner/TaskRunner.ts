@@ -206,7 +206,7 @@ export class TaskRunner {
    * Helper function which finds any tasks which are available to run and begins executing them.
    * It calls the complete callback when all tasks are completed, or rejects if any task fails.
    */
-  private _startAvailableTasksAsync(): Promise<void> {
+  private async _startAvailableTasksAsync(): Promise<void> {
     const taskPromises: Promise<void>[] = [];
     let ctask: Task | undefined;
     while (this._currentActiveTasks < this._parallelism && (ctask = this._getNextTask())) {
@@ -221,9 +221,7 @@ export class TaskRunner {
       taskPromises.push(this._executeTaskAndChainAsync(task));
     }
 
-    return Promise.all(taskPromises).then(() => {
-      // collapse void[] to void
-    });
+    await Promise.all(taskPromises);
   }
 
   private async _executeTaskAndChainAsync(task: Task): Promise<void> {
@@ -247,6 +245,9 @@ export class TaskRunner {
         case TaskStatus.SuccessWithWarning:
           this._hasAnyWarnings = true;
           this._markTaskAsSuccessWithWarning(task);
+          break;
+        case TaskStatus.FromCache:
+          this._markTaskAsFromCache(task);
           break;
         case TaskStatus.Skipped:
           this._markTaskAsSkipped(task);
@@ -356,6 +357,17 @@ export class TaskRunner {
   }
 
   /**
+   * Marks a task as provided by cache.
+   */
+  private _markTaskAsFromCache(task: Task): void {
+    task.collatedWriter.terminal.writeStdoutLine(colors.green(`${task.name} was provided by cache.`));
+    task.status = TaskStatus.FromCache;
+    task.dependents.forEach((dependent: Task) => {
+      dependent.dependencies.delete(task);
+    });
+  }
+
+  /**
    * Prints out a report of the status of each project
    */
   private _printTaskStatus(): void {
@@ -364,6 +376,7 @@ export class TaskRunner {
       switch (task.status) {
         // These are the sections that we will report below
         case TaskStatus.Skipped:
+        case TaskStatus.FromCache:
         case TaskStatus.Success:
         case TaskStatus.SuccessWithWarning:
         case TaskStatus.Blocked:
@@ -392,6 +405,13 @@ export class TaskRunner {
       tasksByStatus,
       colors.green,
       'These projects were already up to date:'
+    );
+
+    this._writeCondensedSummary(
+      TaskStatus.FromCache,
+      tasksByStatus,
+      colors.green,
+      'These projects were restored from the build cache:'
     );
 
     this._writeCondensedSummary(

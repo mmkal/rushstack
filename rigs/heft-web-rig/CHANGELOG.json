@@ -2,6 +2,116 @@
   "name": "@rushstack/heft-web-rig",
   "entries": [
     {
+      "version": "0.2.0",
+      "tag": "@rushstack/heft-web-rig_v0.2.0",
+      "date": "Fri, 08 Jan 2021 07:28:50 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Add a Rush build cache configuration."
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.1.34",
+      "tag": "@rushstack/heft-web-rig_v0.1.34",
+      "date": "Wed, 06 Jan 2021 16:10:43 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@rushstack/heft\" to `0.23.1`"
+          },
+          {
+            "comment": "Updating dependency \"@rushstack/heft\" from `^0.23.0` to `^0.23.1`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.1.33",
+      "tag": "@rushstack/heft-web-rig_v0.1.33",
+      "date": "Mon, 14 Dec 2020 16:12:21 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@rushstack/heft\" to `0.23.0`"
+          },
+          {
+            "comment": "Updating dependency \"@rushstack/heft\" from `^0.22.7` to `^0.23.0`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.1.32",
+      "tag": "@rushstack/heft-web-rig_v0.1.32",
+      "date": "Thu, 10 Dec 2020 23:25:50 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@microsoft/api-extractor\" to `7.12.1`"
+          },
+          {
+            "comment": "Updating dependency \"@rushstack/heft\" to `0.22.7`"
+          },
+          {
+            "comment": "Updating dependency \"@rushstack/heft\" from `^0.22.6` to `^0.22.7`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.1.31",
+      "tag": "@rushstack/heft-web-rig_v0.1.31",
+      "date": "Sat, 05 Dec 2020 01:11:23 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Ensure rootDir is consistently specified."
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@rushstack/heft\" to `0.22.6`"
+          },
+          {
+            "comment": "Updating dependency \"@rushstack/heft\" from `^0.22.5` to `^0.22.6`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.1.30",
+      "tag": "@rushstack/heft-web-rig_v0.1.30",
+      "date": "Tue, 01 Dec 2020 01:10:38 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@rushstack/heft\" to `0.22.5`"
+          },
+          {
+            "comment": "Updating dependency \"@rushstack/heft\" from `^0.22.4` to `^0.22.5`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.1.29",
+      "tag": "@rushstack/heft-web-rig_v0.1.29",
+      "date": "Mon, 30 Nov 2020 16:11:50 GMT",
+      "comments": {
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@rushstack/heft\" to `0.22.4`"
+          },
+          {
+            "comment": "Updating dependency \"@rushstack/heft\" from `^0.22.3` to `^0.22.4`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.1.28",
       "tag": "@rushstack/heft-web-rig_v0.1.28",
       "date": "Wed, 18 Nov 2020 08:19:54 GMT",

@@ -1,6 +1,42 @@
 # Change Log - @rushstack/heft
 
-This log was last generated on Wed, 18 Nov 2020 08:19:54 GMT and should not be manually modified.
+This log was last generated on Wed, 06 Jan 2021 16:10:43 GMT and should not be manually modified.
+
+## 0.23.1
+Wed, 06 Jan 2021 16:10:43 GMT
+
+_Version update only_
+
+## 0.23.0
+Mon, 14 Dec 2020 16:12:20 GMT
+
+### Minor changes
+
+- Delay build stages in --watch mode until the previous stage reports an initial completion.
+
+## 0.22.7
+Thu, 10 Dec 2020 23:25:49 GMT
+
+### Patches
+
+- Fix an issue where using CTRL+C to terminate "--watch" mode would sometimes leave a background process running (GitHub #2387)
+
+## 0.22.6
+Sat, 05 Dec 2020 01:11:23 GMT
+
+_Version update only_
+
+## 0.22.5
+Tue, 01 Dec 2020 01:10:38 GMT
+
+### Patches
+
+- Fix a typo in a logging message.
+
+## 0.22.4
+Mon, 30 Nov 2020 16:11:49 GMT
+
+_Version update only_
 
 ## 0.22.3
 Wed, 18 Nov 2020 08:19:54 GMT

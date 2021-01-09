@@ -89,7 +89,26 @@ export const enum EnvironmentVariableNames {
    *
    * POSIX is a registered trademark of the Institute of Electrical and Electronic Engineers, Inc.
    */
-  RUSH_GLOBAL_FOLDER = 'RUSH_GLOBAL_FOLDER'
+  RUSH_GLOBAL_FOLDER = 'RUSH_GLOBAL_FOLDER',
+
+  /**
+   * Provides a credential for a remote build cache, if configured. Setting this environment variable
+   * overrides a "isCacheWriteAllowed": false setting.
+   *
+   * @remarks
+   * This credential overrides any cached credentials.
+   *
+   * If Azure Blob Storage is used to store cache entries, this must be a SAS token serialized as query
+   * parameters.
+   *
+   * For information on SAS tokens, see here: https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview
+   */
+  RUSH_BUILD_CACHE_WRITE_CREDENTIAL = 'RUSH_BUILD_CACHE_WRITE_CREDENTIAL',
+
+  /**
+   * Allows the git binary path to be explicitly specified.
+   */
+  RUSH_GIT_BINARY_PATH = 'RUSH_GIT_BINARY_PATH'
 }
 
 /**
@@ -111,6 +130,10 @@ export class EnvironmentConfiguration {
   private static _pnpmStorePathOverride: string | undefined;
 
   private static _rushGlobalFolderOverride: string | undefined;
+
+  private static _buildCacheCredential: string | undefined;
+
+  private static _gitBinaryPath: string | undefined;
 
   /**
    * An override for the common/temp folder path.
@@ -157,6 +180,24 @@ export class EnvironmentConfiguration {
   public static get rushGlobalFolderOverride(): string | undefined {
     EnvironmentConfiguration._ensureInitialized();
     return EnvironmentConfiguration._rushGlobalFolderOverride;
+  }
+
+  /**
+   * Provides a credential for reading from and writing to a remote build cache, if configured.
+   * See {@link EnvironmentVariableNames.RUSH_BUILD_CACHE_CONNECTION_STRING}
+   */
+  public static get buildCacheWriteCredential(): string | undefined {
+    EnvironmentConfiguration._ensureInitialized();
+    return EnvironmentConfiguration._buildCacheCredential;
+  }
+
+  /**
+   * Allows the git binary path to be explicitly provided.
+   * See {@link EnvironmentVariableNames.RUSH_GIT_BINARY_PATH}
+   */
+  public static get gitBinaryPath(): string | undefined {
+    EnvironmentConfiguration._ensureInitialized();
+    return EnvironmentConfiguration._gitBinaryPath;
   }
 
   /**
@@ -217,6 +258,16 @@ export class EnvironmentConfiguration {
 
           case EnvironmentVariableNames.RUSH_GLOBAL_FOLDER: {
             // Handled specially below
+            break;
+          }
+
+          case EnvironmentVariableNames.RUSH_BUILD_CACHE_WRITE_CREDENTIAL: {
+            EnvironmentConfiguration._buildCacheCredential = value;
+            break;
+          }
+
+          case EnvironmentVariableNames.RUSH_GIT_BINARY_PATH: {
+            EnvironmentConfiguration._gitBinaryPath = value;
             break;
           }
 

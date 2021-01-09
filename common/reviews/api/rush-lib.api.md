@@ -94,7 +94,9 @@ export const enum DependencyType {
 export const enum EnvironmentVariableNames {
     RUSH_ABSOLUTE_SYMLINKS = "RUSH_ABSOLUTE_SYMLINKS",
     RUSH_ALLOW_UNSUPPORTED_NODEJS = "RUSH_ALLOW_UNSUPPORTED_NODEJS",
+    RUSH_BUILD_CACHE_WRITE_CREDENTIAL = "RUSH_BUILD_CACHE_WRITE_CREDENTIAL",
     RUSH_DEPLOY_TARGET_FOLDER = "RUSH_DEPLOY_TARGET_FOLDER",
+    RUSH_GIT_BINARY_PATH = "RUSH_GIT_BINARY_PATH",
     RUSH_GLOBAL_FOLDER = "RUSH_GLOBAL_FOLDER",
     RUSH_PARALLELISM = "RUSH_PARALLELISM",
     RUSH_PNPM_STORE_PATH = "RUSH_PNPM_STORE_PATH",
@@ -140,6 +142,7 @@ export interface IConfigurationEnvironmentVariable {
 
 // @beta
 export interface IExperimentsJson {
+    buildCache?: boolean;
     legacyIncrementalBuildDependencyDetection?: boolean;
     noChmodFieldInTarHeaderNormalization?: boolean;
     usePnpmFrozenLockfileForRushInstall?: boolean;
@@ -351,6 +354,7 @@ export class RushConfiguration {
     getRepoState(variant?: string | undefined): RepoStateFile;
     getRepoStateFilePath(variant?: string | undefined): string;
     get gitAllowedEmailRegExps(): string[];
+    get gitChangeLogUpdateCommitMessage(): string | undefined;
     get gitSampleEmail(): string;
     get gitVersionBumpCommitMessage(): string | undefined;
     get hotfixChangeEnabled(): boolean;
@@ -419,6 +423,7 @@ export class RushConfigurationProject {
     get packageName(): string;
     get projectFolder(): string;
     get projectRelativeFolder(): string;
+    get projectRushConfigFolder(): string;
     get projectRushTempFolder(): string;
     get reviewCategory(): string | undefined;
     get rushConfiguration(): RushConfiguration;

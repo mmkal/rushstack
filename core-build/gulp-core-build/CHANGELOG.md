@@ -1,6 +1,18 @@
 # Change Log - @microsoft/gulp-core-build
 
-This log was last generated on Wed, 11 Nov 2020 01:08:59 GMT and should not be manually modified.
+This log was last generated on Thu, 10 Dec 2020 23:25:50 GMT and should not be manually modified.
+
+## 3.17.11
+Thu, 10 Dec 2020 23:25:50 GMT
+
+_Version update only_
+
+## 3.17.10
+Mon, 30 Nov 2020 16:11:49 GMT
+
+### Patches
+
+- Fix bug: coverage will not fail jest task
 
 ## 3.17.9
 Wed, 11 Nov 2020 01:08:59 GMT

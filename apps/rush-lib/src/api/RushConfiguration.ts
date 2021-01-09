@@ -70,6 +70,7 @@ export interface IRushGitPolicyJson {
   allowedEmailRegExps?: string[];
   sampleEmail?: string;
   versionBumpCommitMessage?: string;
+  changeLogUpdateCommitMessage?: string;
 }
 
 /**
@@ -466,6 +467,7 @@ export class RushConfiguration {
   private _gitAllowedEmailRegExps: string[];
   private _gitSampleEmail: string;
   private _gitVersionBumpCommitMessage: string | undefined;
+  private _gitChangeLogUpdateCommitMessage: string | undefined;
 
   // "hotfixChangeEnabled" feature
   private _hotfixChangeEnabled: boolean;
@@ -631,7 +633,8 @@ export class RushConfiguration {
     RushConfiguration._validateCommonRushConfigFolder(
       this._commonRushConfigFolder,
       this.packageManager,
-      this._shrinkwrapFilename
+      this._shrinkwrapFilename,
+      this._experimentsConfiguration
     );
 
     this._projectFolderMinDepth =
@@ -677,6 +680,10 @@ export class RushConfiguration {
 
       if (rushConfigurationJson.gitPolicy.versionBumpCommitMessage) {
         this._gitVersionBumpCommitMessage = rushConfigurationJson.gitPolicy.versionBumpCommitMessage;
+      }
+
+      if (rushConfigurationJson.gitPolicy.changeLogUpdateCommitMessage) {
+        this._gitChangeLogUpdateCommitMessage = rushConfigurationJson.gitPolicy.changeLogUpdateCommitMessage;
       }
     }
 
@@ -920,7 +927,8 @@ export class RushConfiguration {
   private static _validateCommonRushConfigFolder(
     commonRushConfigFolder: string,
     packageManager: PackageManagerName,
-    shrinkwrapFilename: string
+    shrinkwrapFilename: string,
+    experiments: ExperimentsConfiguration
   ): void {
     if (!FileSystem.exists(commonRushConfigFolder)) {
       console.log(`Creating folder: ${commonRushConfigFolder}`);
@@ -952,6 +960,11 @@ export class RushConfiguration {
       }
 
       const knownSet: Set<string> = new Set<string>(knownRushConfigFilenames.map((x) => x.toUpperCase()));
+
+      // If the buildCache experiment is enabled, add its configuration file
+      if (experiments.configuration.buildCache) {
+        knownSet.add(RushConstants.buildCacheFilename.toUpperCase());
+      }
 
       // Add the shrinkwrap filename for the package manager to the known set.
       knownSet.add(shrinkwrapFilename.toUpperCase());
@@ -1289,6 +1302,14 @@ export class RushConfiguration {
    */
   public get gitVersionBumpCommitMessage(): string | undefined {
     return this._gitVersionBumpCommitMessage;
+  }
+
+  /**
+   * [Part of the "gitPolicy" feature.]
+   * The commit message to use when committing change log files 'rush version'
+   */
+  public get gitChangeLogUpdateCommitMessage(): string | undefined {
+    return this._gitChangeLogUpdateCommitMessage;
   }
 
   /**
